@@ -715,8 +715,8 @@ client.on("messageCreate", async message => {
         .send(`Restart is in progress...`)
         .then(() => client.destroy())
         .then(() => {
-          client.login(process.env['token']);
           message.channel.send("> ** The bot has been successfully restarted ✅**");
+          process.exit();
         });
     }
     if (command === "help") {
