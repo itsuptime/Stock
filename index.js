@@ -17,12 +17,12 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const db = require("pro.db");
 
 // import setPrice from "./commands/setPrice"
-let owners = '775012312876711936'//ايدي الي هيتحول 
+let owners = db.get("bank") || '775012312876711936'//ايدي الي هيتحول 
 let owner;
 const
   updateAdmins = () => {
     owner = db.get("admins")
-    owners = '775012312876711936'
+    owners = db.get("bank") ||'775012312876711936'
     owner.unshift('775012312876711936')//اي دي حقك
   }
 updateAdmins()
@@ -536,6 +536,19 @@ client.on("messageCreate", async message => {
       db.push("admins", user.id);
       updateAdmins()
       message.channel.send(`> **${user.tag} Added as an admin ✅**`);
+    }
+    if (command === "set-bank") {
+      if (message.channel.type === "dm") return;
+      if (owner[0] != message.author.id) return;
+      let user =
+        message.mentions.users.first() ||
+        message.guild.members.cache.find(u => u.id === args[0]);
+
+      if (!user)
+        return message.channel.send("> **Please select the user correctly **");
+      db.set("bank", user.id);
+      updateAdmins()
+      message.channel.send(`> **${user.tag} Set as Bank ✅**`);
     }
     if (command === "ping") {
       message.channel.send(
