@@ -1,0 +1,21 @@
+{
+ "accounts": [
+  {
+   "name": "nitro",
+   "price": 7000,
+   "tax": 7369,
+   "emails": [
+    "https://discord.com/billing/promotions/AeP5K6a6zDvm5DvR22K95KxE",
+    "https://discord.com/billing/promotions/gJm5CCYb2Htc2ShrsbkAg8F8",
+    "https://discord.com/billing/promotions/gHaufbsukAN6c4CypsDuAcEg",
+    "https://discord.com/billing/promotions/AEaK6YwMHZG8nmnpCv5m6hMU"
+   ]
+  }
+ ],
+ "status": "open",
+ "admins": [],
+ "ch": "",
+ "notif": "",
+ "blacklist": [],
+ "buy": ""
+}
